@@ -1,0 +1,123 @@
+<!--
+<form method="post" action="check">
+Name <input type="text" name="user" >
+<input type="submit" value="submit">
+</form>
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="ind.css">
+  </head>
+  <body>
+    
+    <!-- navbar
+    Code source: https://getbootstrap.com/docs/5.3/components/navbar/-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">
+	    		<!-- img from favpng -->
+	    	      <img src="https://img.favpng.com/23/7/4/computer-icons-educational-technology-learning-training-course-png-favpng-j5t2UTpdMx23LZhscuTVqAJGb.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+	    CourseManagement</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="/CourseManagement">Home</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex" role="search">
+	        <button class="btn btn-outline-success" type="submit">Welcome to Login Page</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    
+    <!-- Showing Alert -->
+    <div id="alert-container"></div>
+    
+    <!-- sign in form
+    Code source: https://mdbootstrap.com/docs/standard/extended/login/ -->
+    <section class="vh-100">
+	  <div class="container-fluid h-custom">
+	    <div class="row d-flex justify-content-center align-items-center h-100">
+	      <div class="col-md-9 col-lg-6 col-xl-5">
+	        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+	          class="img-fluid" alt="Sample image">
+	      </div>
+	      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+	        <form method="post" action="Login" onSubmit="return validateForm()">
+	          <div class="divider d-flex align-items-center my-4">
+	            <p class="text-center fw-bold mx-3 mb-0">Sign In</p>
+	          </div>
+	
+	          <!-- username input -->
+	          <div class="form-outline mb-4">
+	            <input type="text" id="username" name="username" class="form-control form-control-lg"
+	              placeholder="Enter your username" />
+	            <label class="form-label" for="form3Example3">Username</label>
+	          </div>
+	
+	          <!-- Password input -->
+	          <div class="form-outline mb-3">
+	            <input type="password" id="password" name="password" class="form-control form-control-lg"
+	              placeholder="Enter password" />
+	            <label class="form-label" for="form3Example4">Password</label>
+	          </div>
+	
+	          <div class="text-center text-lg-start mt-4 pt-2">
+	            <button type="submit" class="btn btn-primary btn-lg"
+	              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+	          </div>
+	
+	        </form>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+  </body>
+</html>
+
+<!-- Scripts to show alerts when input fields are empty -->
+<script>
+  function validateForm() {
+    var userInput = document.getElementsByName("username")[0];
+    var passInput = document.getElementsByName("password")[0];
+    if (userInput.value == "") {
+    	userInput.style.borderColor="red";
+    	var alertContainer = document.getElementById("alert-container");
+        var alertHTML = `
+	        <div class="alert alert-warning alert-dismissible d-flex align-items-center fade show">
+	          	<i class="bi-exclamation-triangle-fill"></i>
+	            <strong class="mx-2">Warning!</strong> Username cannot be empty.
+	            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+	        </div>
+        `;
+        alertContainer.innerHTML = alertHTML;
+      return false;
+    }
+    if (passInput.value == "") {
+    	passInput.style.borderColor="red";
+    	var alertContainer = document.getElementById("alert-container");
+        var alertHTML = `
+	        <div class="alert alert-warning alert-dismissible d-flex align-items-center fade show">
+	          	<i class="bi-exclamation-triangle-fill"></i>
+	            <strong class="mx-2">Warning!</strong> Password cannot be empty.
+	            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+	        </div>
+        `;
+        alertContainer.innerHTML = alertHTML;
+      return false;
+    }
+    return true;
+  }
+</script>
